@@ -1,5 +1,6 @@
 import FilterTask from "./FilterTask"
 import SortBy from "./SortBy"
+import Tasks from "./Tasks"
 
 const TaskContainer = () => {
     return (
@@ -10,6 +11,9 @@ const TaskContainer = () => {
                     <button className="btn-primary btn btn-sm  bg-blue-800 text-white rounded-sm">Add New Task</button>
                 </div>
                 <SortBy />
+            </div>
+            <div>
+                <Tasks />
             </div>
         </div>
     )
