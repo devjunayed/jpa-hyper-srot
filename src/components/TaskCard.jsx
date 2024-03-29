@@ -1,9 +1,12 @@
 import { HiOutlineDotsVertical } from "react-icons/hi";
+import PropTypes from 'prop-types';
 
-const TaskCard = () => {
+const TaskCard = ({headingBg}) => {
+
+
   return (
     <div className="shadow-md bg-white rounded-md ">
-      <div className="text-center bg-blue-500 rounded-t-md text-white py-2">Pending</div>
+      <div className={`${headingBg} text-center  rounded-t-md text-white py-2`}>Pending</div>
 
       <div className="overflow-y-scroll  max-h-[30rem]">
 
@@ -48,4 +51,8 @@ const TaskCard = () => {
   )
 }
 
-export default TaskCard
+ TaskCard.propTypes = {
+  headingBg: PropTypes.string,
+}
+
+export default TaskCard;

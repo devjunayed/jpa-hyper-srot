@@ -1,28 +1,14 @@
-// import { useState } from "react"
 import TaskCard from "./TaskCard"
 
 const Tasks = () => {
-    // const [taskData, setTaskData] = useState([]);
-
-    // const data = {
-    //     pending: [
-    //         {
-    //             title: "Task 1",
-    //             priority: "P0",
-    //             description: "lajsdflsjflsjflsdflsdjf aldsf jlsdjf ",
-    //             assignee: "Junayed",
-    //             status: "pending"
-    //         }
-    //     ]
-    // }
-
+   
     return (
         <div className="grid gap-8 mt-10 grid-cols-5 justify-center items-center">
-            <TaskCard />
-            <TaskCard />
-            <TaskCard />
-            <TaskCard />
-            <TaskCard />
+            <TaskCard headingBg="bg-[#8C8B90]" />
+            <TaskCard headingBg="bg-[#E89825]" />
+            <TaskCard headingBg="bg-[#42A81E]" />
+            <TaskCard headingBg="bg-[#353976]" />
+            <TaskCard headingBg="bg-[#F68871]" />
         </div>
     )
 }
