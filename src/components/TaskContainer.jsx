@@ -7,7 +7,7 @@ import AddNewTask from "./AddNewTask"
 const TaskContainer = () => {
 
     const [modalIsOpen, setIsOpen] = useState(false);
-    const [tasks, setTasks] = useState({});
+    const [tasks, setTasks] = useState([]);
 
     const handleClick = () => {
         setIsOpen(true);
@@ -18,7 +18,7 @@ const TaskContainer = () => {
 
     return (
         <div className="border border-white p-6 rounded-md">
-            <AddNewTask modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} />
+            <AddNewTask  setTasks={setTasks} modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} />
             <div>
                 <div className="flex justify-between">
                     <FilterTask />
@@ -27,7 +27,7 @@ const TaskContainer = () => {
                 <SortBy />
             </div>
             <div>
-                <Tasks />
+                <Tasks tasks={tasks} setTasks={setTasks}/>
             </div>
         </div>
     )
