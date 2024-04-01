@@ -40,39 +40,44 @@ const Tasks = ({ tasks, setTasks }) => {
   console.log(pendingTasks);
 
   return (
-    <div className="grid gap-8 mt-10 grid-cols-5 justify-center items-center">
+    <div className=" grid gap-8 mt-10 grid-cols-5 justify-center items-center">
       <TaskCard
+        setTasks={setTasks}
         handleStatusChanged={handleStatusChanged}
         statusText="Assign"
-        type={"Pending"}
+        cardType={"Pending"}
         data={pendingTasks}
         headingBg="bg-[#8C8B90]"
       />
       <TaskCard
+        setTasks={setTasks}
         handleStatusChanged={handleStatusChanged}
         statusText="In Progress"
-        type={"In Progress"}
+        cardType={"In Progress"}
         data={inProgressTasks}
         headingBg="bg-[#E89825]"
       />
       <TaskCard
+        setTasks={setTasks}
         handleStatusChanged={handleStatusChanged}
         statusText={"Completed"}
-        type={"Completed"}
+        cardType={"Completed"}
         data={completedTasks}
         headingBg="bg-[#42A81E]"
       />
       <TaskCard
+        setTasks={setTasks}
         handleStatusChanged={handleStatusChanged}
         statusText={"Deployed"}
-        type={"Deployed"}
+        cardType={"Deployed"}
         data={deployedTasks}
         headingBg="bg-[#353976]"
       />
       <TaskCard
+        setTasks={setTasks}
         handleStatusChanged={handleStatusChanged}
         statusText={"Deffered"}
-        type={"Deffered"}
+        cardType={"Deffered"}
         data={defferedTasks}
         headingBg="bg-[#F68871]"
       />
@@ -82,6 +87,7 @@ const Tasks = ({ tasks, setTasks }) => {
 
 Tasks.propTypes = {
   tasks: PropTypes.array,
+  setTasks: PropTypes.func,
 };
 
 export default Tasks;

@@ -1,36 +1,34 @@
 import { IoIosClose } from "react-icons/io";
 import Modal from "react-modal";
-import PropTypes from "prop-types";
-import { useState } from "react";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { toastError, toastSuccess } from "../utils/toast";
+import { useState } from "react";
+import PropTypes from 'prop-types';
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-  },
-};
 
-const AddNewTask = ({ modalIsOpen, setIsOpen, setTasks }) => {
-  const [formData, setFormData] = useState({
-    taskTitle: "",
-    taskDescription: "",
-    teamName: "",
-    assignees: "",
-    taskStatus: "Pending",
-    priority: "P0",
-  });
+const EditTask = ({ isEditModalOpen, task, setIsEditModalOpen, setTasks }) => {
 
-  function closeModal() {
-    setIsOpen(false);
-  }
+  const [formData, setFormData] = useState(task);
 
+
+
+  console.log(formData);
+
+  const closeModal = () => {
+    setIsEditModalOpen(false);
+  };
+
+  const customStyles = {
+    content: {
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+    },
+  };
+
+  
   function handleSubmit(e) {
     e.preventDefault();
     if (formData.taskTitle.length === 0) {
@@ -44,7 +42,7 @@ const AddNewTask = ({ modalIsOpen, setIsOpen, setTasks }) => {
     }else{
         setTasks((prevTasks)=> [...prevTasks, formData]);
         toastSuccess("Task added");
-        setIsOpen(false);
+        setIsEditModalOpen(false);
     }
   }
 
@@ -57,15 +55,15 @@ const AddNewTask = ({ modalIsOpen, setIsOpen, setTasks }) => {
 
   return (
     <div>
-      <Modal
+           <Modal
         className={"absolute  bg-gradient-to-r from-pink-200 to-violet-200"}
-        isOpen={modalIsOpen}
+        isOpen={isEditModalOpen}
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Example Modal"
       >
         <div className="flex justify-between w-full p-2 bg-white ">
-          <h2>CREATE A TASK</h2>
+          <h2>EDIT TASK</h2>
           <button
             className="border p-1 text-sm rounded-full  border-black"
             onClick={closeModal}
@@ -140,16 +138,15 @@ const AddNewTask = ({ modalIsOpen, setIsOpen, setTasks }) => {
           </form>
         </div>
       </Modal>
-      <ToastContainer />
     </div>
   );
 };
 
-AddNewTask.propTypes = {
-  modalIsOpen: PropTypes.bool,
-  setIsOpen: PropTypes.func,
+EditTask.propTypes = {
+  isEditModalOpen: PropTypes.bool,
+  setIsEditModalOpen: PropTypes.func,
   setTasks: PropTypes.func,
+  task: PropTypes.object
+}
 
-};
-
-export default AddNewTask;
+export default EditTask;
