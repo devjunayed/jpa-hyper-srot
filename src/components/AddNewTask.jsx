@@ -78,7 +78,7 @@ const AddNewTask = ({ modalIsOpen, setIsOpen, setTasks }) => {
             onSubmit={handleSubmit}
             className="flex flex-col gap-4 mx-10 my-4"
           >
-            <label htmlFor="" className="flex justify-between">
+            <label htmlFor="" className="flex  justify-between">
               Title:
               <input
                 defaultValue={formData.taskTitle}

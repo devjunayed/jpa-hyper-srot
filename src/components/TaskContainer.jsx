@@ -20,14 +20,16 @@ const TaskContainer = () => {
         setIsOpen={setIsOpen}
       />
       <div>
-        <div className="flex justify-between">
+        <div className="flex items-center flex-col-reverse md:flex-row gap-2 justify-between">
           <FilterTask />
-          <button
-            onClick={handleClick}
-            className="btn-primary btn btn-sm  bg-blue-800 text-white rounded-sm"
-          >
-            Add New Task
-          </button>
+          <div className="mx-auto md:m-0">
+            <button
+              onClick={handleClick}
+              className="btn-primary btn btn-sm  bg-blue-800 text-white rounded-sm"
+            >
+              Add New Task
+            </button>
+          </div>
         </div>
         <SortBy />
       </div>

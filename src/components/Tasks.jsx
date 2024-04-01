@@ -40,7 +40,7 @@ const Tasks = ({ tasks, setTasks }) => {
   console.log(pendingTasks);
 
   return (
-    <div className=" grid gap-8 mt-10 grid-cols-5 justify-center items-center">
+    <div className=" grid gap-8 mt-10 grid-cols-1  md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-center items-center">
       <TaskCard
         setTasks={setTasks}
         handleStatusChanged={handleStatusChanged}
