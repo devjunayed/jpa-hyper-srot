@@ -6,7 +6,6 @@ const TaskCard = ({
   data,
   cardType,
   statusText,
-  // handleStatusChanged,
   setTasks,
 }) => {
   return (

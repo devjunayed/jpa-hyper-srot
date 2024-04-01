@@ -3,6 +3,7 @@ import EditTask from "./EditTask";
 import { useState } from "react";
 import PropType from "prop-types";
 import { Popover } from "antd";
+import Swal from "sweetalert2";
 
 const SingleTaskCard = ({data, statusText, setTasks}) => {
 
@@ -16,16 +17,40 @@ const SingleTaskCard = ({data, statusText, setTasks}) => {
     const handleEditClick = () => {
       setIsEditModalOpen(true);
       hide();
-      console.log("hello");
     };
   
+
+    const handleDelete = () => {
+      Swal.fire({
+        title: "Are you sure?",
+        icon: "warning",  
+        showCancelButton: true,
+        confirmButtonColor: "#1E40AF",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+
+          // deleting task if confrim button clicked
+          setTasks((prevTasks) => {
+            return prevTasks.filter((singleTask) => singleTask !== data);
+          })
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success"
+          });
+        }
+      });
+    }
+
     const content = (
       <div className="flex flex-col">
         <button onClick={handleEditClick} className="px-2">
           Edit
         </button>
         <span className="divider my-0"></span>
-        <button className="px-2">Delete</button>
+        <button onClick={handleDelete} className="px-2">Delete</button>
       </div>
     );
   

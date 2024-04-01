@@ -16,34 +16,12 @@ const Tasks = ({ tasks, setTasks }) => {
     defferedTasks = tasks.filter((task) => task.taskStatus === "Deffered");
   }
 
-  const handleStatusChanged = (task) => {
-    const remainingTasks = tasks.filter((singleTasks) => singleTasks !== task);
-
-    if (task.taskStatus === "Pending") {
-      task.taskStatus = "In Progress";
-    } else if (task.taskStatus === "In Progress") {
-      task.taskStatus = "Completed";
-    } else if (task.taskStatus === "Completed") {
-      task.taskStatus = "Deployed";
-    } else if (task.taskStatus === "Deployed") {
-      task.taskStatus = "Deffered";
-    } else {
-      task = {};
-    }
-
-    setTasks(() => [remainingTasks, task]);
-
-    console.log("Clicked");
-    console.log(task);
-  };
-
-  console.log(pendingTasks);
+  
 
   return (
     <div className=" grid gap-8 mt-10 grid-cols-1  md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-center items-center">
       <TaskCard
         setTasks={setTasks}
-        handleStatusChanged={handleStatusChanged}
         statusText="Assign"
         cardType={"Pending"}
         data={pendingTasks}
@@ -51,7 +29,6 @@ const Tasks = ({ tasks, setTasks }) => {
       />
       <TaskCard
         setTasks={setTasks}
-        handleStatusChanged={handleStatusChanged}
         statusText="In Progress"
         cardType={"In Progress"}
         data={inProgressTasks}
@@ -59,7 +36,6 @@ const Tasks = ({ tasks, setTasks }) => {
       />
       <TaskCard
         setTasks={setTasks}
-        handleStatusChanged={handleStatusChanged}
         statusText={"Completed"}
         cardType={"Completed"}
         data={completedTasks}
@@ -67,7 +43,6 @@ const Tasks = ({ tasks, setTasks }) => {
       />
       <TaskCard
         setTasks={setTasks}
-        handleStatusChanged={handleStatusChanged}
         statusText={"Deployed"}
         cardType={"Deployed"}
         data={deployedTasks}
@@ -75,7 +50,6 @@ const Tasks = ({ tasks, setTasks }) => {
       />
       <TaskCard
         setTasks={setTasks}
-        handleStatusChanged={handleStatusChanged}
         statusText={"Deffered"}
         cardType={"Deffered"}
         data={defferedTasks}
